@@ -63,6 +63,7 @@ extern "C" void menu_sdl_event(const SDL_Event *e) {
             if (!e->key.repeat) menu_perf_cycle();
             return;
         }
+        if (!e->key.repeat && !takes_input()) menu_mute_key(input_sdl_key(e->key.scancode));
         [[fallthrough]];
     case SDL_EVENT_KEY_UP:
         if (!takes_input()) return;

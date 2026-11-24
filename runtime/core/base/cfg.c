@@ -105,6 +105,7 @@ static const CfgRow rows[] = {
     S("VOLUME", "audio", "100", "0..100", LIVE),
     S("AUDIO_CHANNELS", "audio", "auto", "auto|2|6", RESTART),
     S("BACKGROUND_MUTE", "audio", "0", "0|1", LIVE),
+    S("MUTE", "audio", "0", "0|1", LIVE),
     S("MOTION", "input", "1", "0|1", LIVE),
     S("RUMBLE_STRENGTH", "input", "130", "0..300", LIVE),
     S("RUMBLE_CURVE", "input", "0.6", "0.2..1.5", LIVE),
