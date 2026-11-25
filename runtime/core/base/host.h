@@ -146,6 +146,11 @@ uint32_t mem_set_attribute(uint64_t a, uint64_t n, uint32_t mask, uint32_t at); 
 uint32_t mem_map(uint64_t dst, uint64_t src, uint64_t n);                       // 0x04
 uint32_t mem_unmap(uint64_t dst, uint64_t src, uint64_t n);                     // 0x05
 uint32_t mem_query(uint64_t a, RtMemoryInfo *out);                              // 0x06
+int mem_guest_readable(uint64_t a, uint64_t n);            // 1: [a, a+n) is the game's heap or mapped alias pages,
+                                                           // not a moved stack's source or a trapped page, which the
+                                                           // runtime may read without a fault it cannot handle; from
+                                                           // memory.c's books, no system call. 0: cannot tell, ask
+                                                           // plat_mem_readable
 uint32_t mem_map_physical(uint64_t a, uint64_t n);                              // 0x2C
 uint32_t mem_unmap_physical(uint64_t a, uint64_t n);                            // 0x2D
 int mem_info(uint32_t id, uint64_t *out);                  // GetInfo memory ids 2-7, 12-17, 21, 22, 28; 0 if not a memory id
@@ -250,6 +255,7 @@ void hostfn_time_report(uint64_t frame);                   // MKW_HOST_TIME=1: h
 void hostfn_time_window(uint64_t frame);                   // the same since the last report, now (seqwatch.c MKW_SEQ_EXIT)
 void seqwatch_frame(uint64_t frame);                       // each present: phases whose update stopped have ended
 int seqwatch_window(void);                                 // MKW_SEQ_EXIT's window is open: no periodic host time report
+void seqwatch_exit(void);                                  // ctl exit: the run ends at its next present, as MKW_SEQ_EXIT
 int64_t seqwatch_since_us(void);                         // since MKW_SEQ_UNTIL's event, -1 before (the A/B world clock)
 int seqwatch_hold(void);                                   // a MKW_SEQ_HOLD node is active: no input script presses
 void seqwatch_movie_end(void);                              // a video reached its end of stream (ov_codec.c)

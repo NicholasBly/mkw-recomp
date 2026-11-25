@@ -20,5 +20,6 @@ default, or `MKW_GAME=<dir>`, with `exefs/` and `romfs/` inside) and write to `b
 | [mod/](mod/README.md) | Mod import for the start screen's Mods page (started by it the same way) |
 | [plugin/](plugin/README.md) | The native plugin API's test and its example plugin |
 | [run/](run/README.md) | Game runs (live with a control channel, to the race, under perf) and diagnostics: stacks, memory |
+| [runner/](runner/README.md) | The run layer behind `run/`'s scripts, in Python with tests: `NAME.json`, per-frame rows, the A/B verdict with its interval |
 | [test/](test/README.md) | Runtime tests without the game: frame captures replayed serially and in chunks |
 | [shaders/](shaders/README.md) | Extraction of the GPU programs, SM86 opcode census and translation to SPIR-V |

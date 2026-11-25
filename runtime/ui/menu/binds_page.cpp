@@ -19,7 +19,7 @@ extern "C" {
 void rt_log(const char *fmt, ...) __attribute__((format(printf, 1, 2)));
 }
 
-static_assert(UI_BIND_RSTICK_DOWN - UI_BIND_A == ACTION_COUNT - 1, "UI_BIND_* follow the actions");
+static_assert(UI_BIND_MUTE - UI_BIND_A == ACTION_COUNT - 1, "UI_BIND_* follow the actions");
 static_assert(UI_BIND_DESC_MINUS - UI_BIND_DESC_A == B_MINUS, "UI_BIND_DESC_* follow the actions");
 static_assert(UI_KEY_PAGEDOWN - UI_KEY_SPACE == KEY_PAGEDOWN - KEY_SPACE, "UI_KEY_* follow the key ids");
 static_assert(UI_PAD_ZR - UI_PAD_SOUTH == PAD_ZR - PAD_SOUTH, "UI_PAD_* follow the pad ids");
@@ -30,7 +30,7 @@ enum { CAPTURE_SECONDS = 5 };
 static const uint64_t kDoneNs = 350000000ull;
 
 static const int kButtons[] = {B_A, B_B, B_X, B_Y, B_L, B_R, B_ZL, B_ZR, B_STICK_L, B_STICK_R, B_PLUS, B_MINUS,
-                               B_UP, B_DOWN, B_LEFT, B_RIGHT};
+                               B_UP, B_DOWN, B_LEFT, B_RIGHT, B_MUTE};
 static const int kMove[] = {B_SL_UP, B_SL_DOWN, B_SL_LEFT, B_SL_RIGHT};
 static const int kCamera[] = {B_SR_UP, B_SR_DOWN, B_SR_LEFT, B_SR_RIGHT};
 
@@ -48,6 +48,7 @@ static const char *action_label(int a) { return menu_text((UiTextId)(UI_BIND_A +
 static UiTextId action_desc(int a) {
     if (a <= B_MINUS) return (UiTextId)(UI_BIND_DESC_A + a);
     if (a <= B_DOWN) return UI_BIND_DESC_DPAD;
+    if (a == B_MUTE) return UI_BIND_DESC_MUTE;
     return a <= B_SL_DOWN ? UI_BIND_DESC_MOVE : UI_BIND_DESC_CAMERA;
 }
 
@@ -165,7 +166,8 @@ static void row_action(int a, const InputMap &m, int layout) {
     int np = a < B_SL_LEFT ? input_map_pads_of(&m, a, layout, p, INPUT_PAD_BINDING_MAX) : 0;
     char b0[48], b1[48];
     const char *cells[3] = {nk > 0 ? key_label(k[0], b0, sizeof b0) : "", nk > 1 ? key_label(k[1], b1, sizeof b1) : "",
-                            a >= B_SL_LEFT ? menu_text(a <= B_SL_DOWN ? UI_PAD_LSTICK : UI_PAD_RSTICK)
+                            a == B_MUTE    ? ""
+                            : a >= B_SL_LEFT ? menu_text(a <= B_SL_DOWN ? UI_PAD_LSTICK : UI_PAD_RSTICK)
                             : np           ? pad_label(p[0])
                                            : ""};
     const bool enabled[3] = {true, true, a < B_SL_LEFT};   // the sticks stay sticks
@@ -196,6 +198,9 @@ static void capture_window(void) {
     if (!g_cap.done) {
         int id = 0, got = input_capture(g_cap.reset, &id);
         g_cap.reset = false;
+        if (got == INPUT_CAPTURE_KEY && g_cap.action == B_MUTE &&   // the mouse and the hacks' F2-F5 stay theirs
+            ((id >= KEY_MOUSE_L && id <= KEY_MOUSE_X2) || (id >= KEY_F2 && id <= KEY_F5)))
+            got = INPUT_CAPTURE_NONE;
         if (got == INPUT_CAPTURE_KEY && !pad_cell) change(g_cap.action, g_cap.cell, id);
         if (got == INPUT_CAPTURE_PAD && pad_cell) change(g_cap.action, g_cap.cell, id);
         if (got != INPUT_CAPTURE_NONE && !(got == INPUT_CAPTURE_KEY && pad_cell)) g_cap.done = now;

@@ -491,6 +491,7 @@ static void tab_sound(float scale) {
         opt_choice_list("MKW_AUDIO_CHANNELS", UI_MENU_SPEAKERS, vals, names, 3, UI_MENU_SPEAKERS_DESC);
     }
     opt_toggle("MKW_BACKGROUND_MUTE", UI_MENU_BACKGROUND_MUTE, UI_MENU_BACKGROUND_MUTE_DESC);   // audio/audio_mixer.c
+    opt_toggle("MKW_MUTE", UI_MENU_MUTE, UI_MENU_MUTE_DESC);   // also the Mute Toggle key (Controls tab, menu_mute_key)
     opt_end();
 }
 

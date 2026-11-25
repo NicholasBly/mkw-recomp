@@ -23,6 +23,7 @@
 //   pause | step [N] | resume   the game stops on its next frame, goes N frames on (1) and stops, runs again (freeze.c)
 //   set KEY VALUE        a live setting as the menu sets it (cfg_set, MKW_ prefixed), not saved to mkw.ini
 //   drawstacks [N]       the draws of the next N frames (1) counted by guest call stack and depth target (nvn_dstk.c)
+//   exit                 the run ends at its next present as MKW_SEQ_EXIT ends it, logs and per-frame rows written
 #include <errno.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -127,6 +128,9 @@ void ctl_run(char *line) {
         }
     } else if (!strcmp(cmd, "frame")) {
         rt_log("ctl: frame %llu", (unsigned long long)frame);
+    } else if (!strcmp(cmd, "exit")) {
+        rt_log("ctl: exit at the next present (frame %llu)", (unsigned long long)frame);
+        seqwatch_exit();
     } else if (!strcmp(cmd, "focus") && (*arg == '0' || *arg == '1')) {
         gfx_window_focus_changed(*arg == '1');
         rt_log("ctl: focus %c at frame %llu", *arg, (unsigned long long)frame);

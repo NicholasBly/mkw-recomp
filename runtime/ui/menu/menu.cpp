@@ -378,6 +378,16 @@ extern "C" void menu_perf_cycle(void) {
     g_perf_save.store(1);
 }
 
+extern "C" void menu_mute_key(int key) {
+    InputMap m;
+    uint8_t k[INPUT_BINDING_MAX];
+    input_map_snapshot(&m);
+    int n = input_map_keys_of(&m, B_MUTE, k, INPUT_BINDING_MAX);
+    if (!key || !memchr(k, key, (size_t)n)) return;
+    cfg_set("MKW_MUTE", cfg_int("MKW_MUTE") ? "0" : "1");
+    g_perf_save.store(1);   // (the same deferred write as F10's)
+}
+
 // The device the game renders on, for perfmon's GPU counters (by LUID), NVML (by name) and ADL (by PCI bus, else
 // name); once, before full mode.
 static void perf_gpu_once(const MenuTarget *t) {

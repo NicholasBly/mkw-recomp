@@ -98,7 +98,8 @@ into the library).
 
 <a href="https://recomplauncher.com/game/mkw-recomp"><img src="https://recomplauncher.com/assets/press/launcher/badge-dark.svg" alt="Get it on RecompLauncher" height="56"></a>
 
-Requirements: x86-64 CPU with AVX2 (or, on Linux, AArch64 with ARMv8.2: LSE, FP16, RCpc, DotProd, CRC32), a GPU with
+Requirements: x86-64 CPU with AVX2 (on Windows, without it: the `-windows-x64-noavx2.zip` package, SSE4.2; or, on
+Linux, AArch64 with ARMv8.2: LSE, FP16, RCpc, DotProd, CRC32), a GPU with
 Vulkan 1.3 (`VK_EXT_mesh_shader` recommended), 16 GB of RAM recommended. In a Docker or Podman container on Linux,
 allow `userfaultfd` in the seccomp profile (Docker's default refuses it), or it runs several times slower.
 

@@ -1456,6 +1456,67 @@ T["UI_MENU_RENHDRUM_DESC"] = {
     "th": "เล่นการสั่น HD ของเกมบน DualSense, Pro Controller, Xbox One S หรือ Steam Controller ของผู้เล่น 1 ผ่าน RenHDrum ซึ่งจะดาวน์โหลดจากรุ่นทางการเมื่อเปิดใช้ มีผลเมื่อเริ่มเกมครั้งถัดไป",
 }
 
+# The Mute setting of the Sound tab and its Mute Toggle key in the Controls tab (#866). "\\\\" is the key's default, a
+# backslash escaped as the .po holds it; the tab names are each catalog's own UI_MENU_TAB_SOUND and _CONTROLS.
+T["UI_MENU_MUTE"] = {
+    "ca": "Silencia", "de": "Stumm", "es": "Silenciar", "es-419": "Silenciar", "eu": "Isilarazi", "fr": "Muet",
+    "gl": "Silenciar", "it": "Muto", "ja": "消音", "ko": "음소거", "nl": "Dempen", "pl": "Wycisz",
+    "pt": "Silenciar", "pt-BR": "Silenciar", "ru": "Без звука", "th": "ปิดเสียง", "tr": "Sessiz",
+    "uk": "Без звуку", "zh-Hans": "静音", "zh-Hant": "靜音",
+}  # fmt: skip
+T["UI_BIND_MUTE"] = {
+    "ca": "Activa/desactiva el so", "de": "Ton an/aus", "es": "Activar/silenciar sonido",
+    "es-419": "Activar/silenciar sonido", "eu": "Soinua piztu/itzali", "fr": "Activer/couper le son",
+    "gl": "Activar/silenciar son", "it": "Attiva/disattiva audio", "ja": "消音の切り替え", "ko": "음소거 전환",
+    "nl": "Geluid aan/uit", "pl": "Przełącz wyciszenie", "pt": "Ligar/silenciar som",
+    "pt-BR": "Ativar/silenciar som", "ru": "Вкл./выкл. звук", "th": "สลับปิดเสียง", "tr": "Sesi aç/kapat",
+    "uk": "Увімк./вимк. звук", "zh-Hans": "切换静音", "zh-Hant": "切換靜音",
+}  # fmt: skip
+T["UI_MENU_MUTE_DESC"] = {
+    "ca": "Sense so. La tecla Activa/desactiva el so (\\\\ per defecte, a la pestanya Controls) el commuta en qualsevol moment.",
+    "de": "Kein Ton. Die Taste Ton an/aus (standardmäßig \\\\, im Tab Steuerung) schaltet ihn jederzeit um.",
+    "es": "Sin sonido. La tecla Activar/silenciar sonido (\\\\ por defecto, en la pestaña Controles) lo cambia en cualquier momento.",
+    "es-419": "Sin sonido. La tecla Activar/silenciar sonido (\\\\ de forma predeterminada, en la pestaña Controles) lo cambia en cualquier momento.",
+    "eu": "Soinurik ez. Soinua piztu/itzali teklak (\\\\ lehenespenez, Aginteak fitxan) edozein unetan aldatzen du.",
+    "fr": "Pas de son. La touche Activer/couper le son (\\\\ par défaut, dans l'onglet Commandes) le bascule à tout moment.",
+    "gl": "Sen son. A tecla Activar/silenciar son (\\\\ por defecto, na lapela Controis) cámbiao en calquera momento.",
+    "it": "Nessun suono. Il tasto Attiva/disattiva audio (\\\\ di default, nella scheda Comandi) lo alterna in qualsiasi momento.",
+    "ja": "音を出しません。消音の切り替えキー（初期設定は \\\\、操作タブ）でいつでも切り替えられます。",
+    "ko": "소리를 끕니다. 음소거 전환 키(기본값 \\\\, 조작 탭)로 언제든지 켜고 끌 수 있습니다.",
+    "nl": "Geen geluid. De toets Geluid aan/uit (standaard \\\\, op het tabblad Besturing) schakelt het altijd om.",
+    "pl": "Bez dźwięku. Klawisz Przełącz wyciszenie (domyślnie \\\\, na karcie Sterowanie) włącza i wyłącza go w każdej chwili.",
+    "pt": "Sem som. A tecla Ligar/silenciar som (\\\\ por predefinição, no separador Controlos) alterna-o a qualquer momento.",
+    "pt-BR": "Sem som. A tecla Ativar/silenciar som (\\\\ por padrão, na aba Controles) alterna a qualquer momento.",
+    "ru": "Без звука. Клавиша «Вкл./выкл. звук» (по умолчанию \\\\, на вкладке «Управление») переключает его в любой момент.",
+    "th": "ไม่มีเสียง ปุ่มสลับปิดเสียง (ค่าเริ่มต้น \\\\ ในแท็บการควบคุม) เปิดและปิดได้ทุกเมื่อ",
+    "tr": "Ses yok. Sesi aç/kapat tuşu (varsayılan \\\\, Kontroller sekmesinde) bunu her an açıp kapatır.",
+    "uk": "Без звуку. Клавіша «Увімк./вимк. звук» (типово \\\\, на вкладці «Керування») перемикає його будь-коли.",
+    "zh-Hans": "不输出声音。切换静音键（默认为 \\\\，在“操作”标签页）可随时开关。",
+    "zh-Hant": "不輸出聲音。切換靜音鍵（預設為 \\\\，在「操作」分頁）可隨時開關。",
+}
+T["UI_BIND_DESC_MUTE"] = {
+    "ca": "Activa i desactiva el so en qualsevol moment, com Silencia de la pestanya So. Només tecles: no es poden fer servir els botons del ratolí ni de F2 a F5.",
+    "de": "Schaltet den Ton jederzeit an und aus, wie Stumm im Tab Ton. Nur Tasten: Maustasten und F2 bis F5 sind nicht möglich.",
+    "es": "Activa y silencia el sonido en cualquier momento, como Silenciar de la pestaña Sonido. Solo teclas: no se pueden usar los botones del ratón ni de F2 a F5.",
+    "es-419": "Activa y silencia el sonido en cualquier momento, como Silenciar de la pestaña Sonido. Solo teclas: no se pueden usar los botones del mouse ni de F2 a F5.",
+    "eu": "Soinua edozein unetan pizten eta itzaltzen du, Soinua fitxako Isilarazi bezala. Teklak bakarrik: ezin dira saguaren botoiak ez F2tik F5era erabili.",
+    "fr": "Active et coupe le son à tout moment, comme Muet de l'onglet Son. Touches uniquement : les boutons de la souris et F2 à F5 ne peuvent pas être utilisés.",
+    "gl": "Activa e silencia o son en calquera momento, como Silenciar da lapela Son. Só teclas: non se poden usar os botóns do rato nin de F2 a F5.",
+    "it": "Attiva e disattiva l'audio in qualsiasi momento, come Muto nella scheda Audio. Solo tasti: non si possono usare i tasti del mouse né da F2 a F5.",
+    "ja": "サウンドタブの消音と同じく、いつでも音のオン/オフを切り替えます。キーのみ：マウスボタンとF2～F5は使えません。",
+    "ko": "사운드 탭의 음소거처럼 언제든지 소리를 켜고 끕니다. 키만 가능: 마우스 버튼과 F2~F5는 사용할 수 없습니다.",
+    "nl": "Zet het geluid op elk moment aan en uit, zoals Dempen op het tabblad Geluid. Alleen toetsen: muisknoppen en F2 tot F5 kunnen niet.",
+    "pl": "Włącza i wyłącza dźwięk w każdej chwili, jak Wycisz na karcie Dźwięk. Tylko klawisze: nie można użyć przycisków myszy ani F2–F5.",
+    "pt": "Liga e silencia o som a qualquer momento, como Silenciar no separador Som. Só teclas: não se podem usar os botões do rato nem de F2 a F5.",
+    "pt-BR": "Ativa e silencia o som a qualquer momento, como Silenciar na aba Som. Só teclas: não é possível usar os botões do mouse nem de F2 a F5.",
+    "ru": "Включает и выключает звук в любой момент, как «Без звука» на вкладке «Звук». Только клавиши: кнопки мыши и F2–F5 использовать нельзя.",
+    "th": "เปิดและปิดเสียงได้ทุกเมื่อ เหมือนปิดเสียงในแท็บเสียง ใช้ได้เฉพาะปุ่มคีย์บอร์ด: ใช้ปุ่มเมาส์และ F2 ถึง F5 ไม่ได้",
+    "tr": "Ses sekmesindeki Sessiz gibi, sesi her an açıp kapatır. Yalnızca tuşlar: fare düğmeleri ve F2-F5 kullanılamaz.",
+    "uk": "Вмикає і вимикає звук будь-коли, як «Без звуку» на вкладці «Звук». Лише клавіші: кнопки миші та F2–F5 використати не можна.",
+    "zh-Hans": "随时开关声音，与“声音”标签页的静音相同。仅限按键：不能使用鼠标按键和 F2 至 F5。",
+    "zh-Hant": "隨時開關聲音，與「聲音」分頁的靜音相同。僅限按鍵：不能使用滑鼠按鍵和 F2 至 F5。",
+}
+
 
 def main():
     # catalog.py's own reader and writer: a long English id is wrapped over several lines in the .po, which a

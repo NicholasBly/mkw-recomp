@@ -64,6 +64,11 @@ CASES = [
     (526, "Where is the save file located?", "", "save"),
     (531, "Adding More Performance Enhancing Mode To The Settings", "", None),
     (534, "Performance Issues and Visual Artifacts Since Version 1.12 (Worse in 1.13)", "artifacts appear", "bug"),
+    (563, "Open Overlay with Guide Button", "### Idea\n\nStart + Select conflicts with preexisting mappings", None),
+    (746, "FSR4 / DLSS / XELL/XEFG", "", "upscalers"),
+    (805, "Support in Windows builder for CPUs without AVX2", "", "avx2"),
+    (863, "How to use NUP with compiled version", "can't extract the NUP", None),
+    (875, "When will support be added for the new 1.9.0 update?", "", "versions"),
 ]
 
 

@@ -144,6 +144,7 @@ static void ft_report(uint64_t now, const char *tag) {
 __attribute__((weak)) void gfx_exit_log(void) {}
 
 void perf_summary_flush(void) {   // at exit (prof_write)
+    frames_flush();
     if (summary_t0) {
         ft_report(kern_now_ns(), "exit");
         gfx_exit_log();
@@ -266,6 +267,7 @@ void perf_present(uint64_t frame) {
     uint64_t now = kern_now_ns(), d = last ? now - last : 0;
     prof_sampler_frame(frame, now, last ? d : 0);
     uint64_t rep = ft_frame(frame, now, d);   // d is 0 on the first present: it only starts the period
+    frames_row(frame, d, frame_ns, rep);
     ab_b += rt_ab();
     cpu_placement();
     if (__atomic_load_n(&overlay, __ATOMIC_RELAXED))   // the overlay's only cost while it is off: this branch

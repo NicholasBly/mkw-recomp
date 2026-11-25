@@ -19,6 +19,9 @@ TOPICS = Path(__file__).with_name("topics.toml")
 MODERATED = {"Q&A", "General", "Ideas"}
 # A request names the failure it wants gone ("make it not crash"): only its title decides it is not a bug report
 REQUEST = re.compile(r"^\s*\[?(feature|request|idea|suggestion)|^\s*(add|support|please add|allow|option)\b", re.I)
+# The Ideas form's own heading: an idea names what it wants changed, not a failure (#563, "conflicts with preexisting
+# button mappings", was sent to the bug form)
+IDEA_FORM = re.compile(r"^### Idea\s*$", re.M)
 # Read only in the title: slowdowns, reports too for the performance form (#432 "Last version slowdowns", #265 "slow
 # motion"; praise says "minimal stutters and slowdown", #330), and "not working" (#302), which classify.FAILURE misses
 TITLE_FAILURE = re.compile(
@@ -63,7 +66,7 @@ def topic(title: str, topics: list[Topic]) -> Topic | None:
 def bug_report(title: str, body: str) -> bool:
     """A failure on the player's machine: described in the title, or in the text of a post that is not a request.
     A log attached counts as a report on its own (#139: only a log link and "me salio este error")."""
-    if REQUEST.search(title):
+    if REQUEST.search(title) or IDEA_FORM.search(body or ""):
         return False
     text = f"{title}\n{classify.FENCE.sub('', body or '')}"
     return bool(

@@ -66,7 +66,7 @@ typedef struct Mixer {
 static _Atomic float device_volume = 1.0f;
 
 // MKW_VOLUME: the player's volume in percent (0..100) on top of the game's own; a live setting (the
-// menu), parsed again when cfg_version changes. Render thread only.
+// menu), parsed again when cfg_version changes; MKW_MUTE=1 (the Sound tab, the Mute Toggle key) makes it 0. Render thread only.
 static float host_volume(void) {
     static float v = 1.0f;
     static unsigned seen = ~0u;
@@ -74,7 +74,7 @@ static float host_volume(void) {
     if (ver == seen) return v;
     seen = ver;
     double pct = cfg_double("MKW_VOLUME");
-    v = (float)((pct < 0 ? 0 : pct > 100 ? 100 : pct) / 100);
+    v = cfg_int("MKW_MUTE") ? 0.0f : (float)((pct < 0 ? 0 : pct > 100 ? 100 : pct) / 100);
     return v;
 }
 // MKW_BACKGROUND_MUTE=1: silent while the window is not in front (gfx_present.c's focus, what the game hears as

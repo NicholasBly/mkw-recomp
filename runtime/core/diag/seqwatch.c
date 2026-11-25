@@ -323,7 +323,20 @@ int64_t seqwatch_since_us(void) {
 
 int seqwatch_window(void) { return __atomic_load_n(&window_end, __ATOMIC_RELAXED) != 0; }
 
+// ctl exit: the run ends at its next present the way MKW_SEQ_EXIT ends it (census, profile and per-frame rows written),
+// for tools/runner/run.py's stop once an A/B is measured well enough; a kill would lose those.
+static int exit_asked;
+
+void seqwatch_exit(void) { __atomic_store_n(&exit_asked, 1, __ATOMIC_RELEASE); }
+
 void seqwatch_frame(uint64_t frame) {
+    if (__atomic_load_n(&exit_asked, __ATOMIC_ACQUIRE) && !cap_busy()) {
+        rt_log("seq: ctl exit, frame %llu: exit", (unsigned long long)frame);
+        if (seqwatch_window()) hostfn_time_window(frame);
+        prof_write();
+        fflush(stderr);
+        plat_exit(0);
+    }
     uint64_t end = __atomic_load_n(&window_end, __ATOMIC_RELAXED);
     if (end && kern_now_ns() >= end && !cap_busy()) {   // a capture in progress ends first (its file would be cut)
         rt_log("seq: MKW_SEQ_EXIT: %.1f s after MKW_SEQ_UNTIL, frame %llu: exit", exit_ns / 1e9, (unsigned long long)frame);

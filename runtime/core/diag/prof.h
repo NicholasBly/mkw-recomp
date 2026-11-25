@@ -10,3 +10,7 @@ extern volatile uint32_t prof_replay_tid;   // the asynchronous replay (perf_rep
 int prof_sampler_start(void);               // MKW_PROFILE: starts sampling; 1 when it runs
 void prof_sampler_write(void);              // writes the profile once (prof_write)
 void prof_sampler_frame(uint64_t frame, uint64_t now, uint64_t d);   // every present; d: the interval, 0 on the first
+
+// MKW_FRAMES (frames.c): one row per present, from perf_present; flushed at exit (perf_summary_flush).
+void frames_row(uint64_t frame, uint64_t interval_ns, const uint64_t wait_ns[], uint64_t replay_ns);
+void frames_flush(void);

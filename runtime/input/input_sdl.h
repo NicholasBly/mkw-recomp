@@ -16,6 +16,7 @@ double gfx_window_sdl_density(void);      // pixels per window unit (mouse posit
 void input_sdl_window(SDL_Window *w);     // the game window was created
 void input_sdl_event(const SDL_Event *e); // every event, first
 void input_sdl_idle(void);                // no event for a while: a cursor change asked for from another thread
+int input_sdl_key(SDL_Scancode sc);       // its key id (input_map.h), 0 for none
 
 // ui/menu/menu_sdl.cpp
 void menu_sdl_event(const SDL_Event *e);  // every event, after input_sdl_event

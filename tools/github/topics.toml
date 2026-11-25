@@ -22,9 +22,10 @@ id = "versions"
 seen = 3
 faq = "which-game-versions-work"
 any = ["(?<![\\d.])1\\.[0-9](\\.[0-9])?(?![.\\d])", "\\.(nup|nx)\\b|\\bnup\\b"]
-# A request for something on a version ("Thai language support for version 1.8.0", #193) is not about the version
-not = ["\\b(language|translat\\w*)\\b"]
-reply = "Mario Kart World **1.0.0** and **1.8.0** work (1.8.0 from v0.1.9), dumped from your own console; the versions in between are not planned, since each one is a different program to recompile and patch. The start screen takes the dump as a folder or as a `.nup` / `.nx` file (**Game files → Choose .nup or .nx file**)."
+# A request for something on a version ("Thai language support for version 1.8.0", #193) is not about the version, nor
+# building from source with a .nup ("How to use NUP with compiled version", #863)
+not = ["\\b(language|translat\\w*)\\b", "\\b(compil\\w*|build\\w*|source)\\b"]
+reply = "Mario Kart World **1.0.0** and **1.8.0** work (1.8.0 from v0.1.9), dumped from your own console. Other versions, those in between or newer ones such as 1.9.0, are not supported and have no date: each one is a different program to recompile and patch. The start screen takes the dump as a folder or as a `.nup` / `.nx` file (**Game files → Choose .nup or .nx file**)."
 
 [[topic]]
 id = "online"
@@ -76,7 +77,7 @@ id = "avx2"
 seen = 82
 faq = "does-my-cpu-need-avx2"
 any = ["\\bavx2?\\b"]
-reply = "The CPU needs AVX2 today. A build without it is planned, with no date."
+reply = "On Windows, a CPU without AVX2 uses the `-windows-x64-noavx2.zip` package of each [release]({repo_url}/releases/latest) (from v0.1.16; it needs SSE4.2). Linux has no package without AVX2 yet."
 
 [[topic]]
 id = "macos"
@@ -90,4 +91,4 @@ id = "upscalers"
 seen = 0
 faq = "dlss-fsr-34-xess"
 any = ["\\b(dlss|xess|fsr ?[234](\\.\\d)?)\\b"]
-reply = "DLSS, FSR 2/3/4 and XeSS need motion vectors the game does not produce. FSR 1 scaling and frame generation are built in; rebuilding motion vectors is planned for later."
+reply = "DLSS and FSR 3.1 (upscaling and frame generation) and NVIDIA Reflex are in from v0.1.17, off by default: turn them on in **Graphics > Resolution** in the F1 menu; on Windows their libraries download when you pick them. DLSS on Linux is in `main` for the next release. FSR 4 and XeSS are not there."
