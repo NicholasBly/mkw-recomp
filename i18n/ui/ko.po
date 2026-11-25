@@ -909,13 +909,13 @@ msgstr "게임 창이 앞에 있지 않을 때는 소리가 나지 않습니다.
 
 msgctxt "UI_MENU_MUTE"
 msgid "Mute"
-msgstr ""
+msgstr "음소거"
 
 msgctxt "UI_MENU_MUTE_DESC"
 msgid ""
 "No sound. The Mute Toggle key (\\ by default, in the Controls tab) turns it on and off at any "
 "time."
-msgstr ""
+msgstr "소리를 끕니다. 음소거 전환 키(기본값 \\, 조작 탭)로 언제든지 켜고 끌 수 있습니다."
 
 msgctxt "UI_MENU_SPEAKERS_DESC"
 msgid ""
@@ -1354,7 +1354,7 @@ msgstr "카메라 아래"
 
 msgctxt "UI_BIND_MUTE"
 msgid "Mute Toggle"
-msgstr ""
+msgstr "음소거 전환"
 
 msgctxt "UI_BIND_DESC_A"
 msgid "Accelerate; confirm in menus."
@@ -1421,7 +1421,7 @@ msgctxt "UI_BIND_DESC_MUTE"
 msgid ""
 "Turns the sound on and off at any time, as the Sound tab's Mute. Keys only: the mouse buttons and "
 "F2 to F5 cannot be used."
-msgstr ""
+msgstr "사운드 탭의 음소거처럼 언제든지 소리를 켜고 끕니다. 키만 가능: 마우스 버튼과 F2~F5는 사용할 수 없습니다."
 
 msgctxt "UI_KEY_SPACE"
 msgid "Space"

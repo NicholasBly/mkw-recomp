@@ -889,13 +889,13 @@ msgstr "ゲームのウィンドウが前面にない間は音を出しません
 
 msgctxt "UI_MENU_MUTE"
 msgid "Mute"
-msgstr ""
+msgstr "消音"
 
 msgctxt "UI_MENU_MUTE_DESC"
 msgid ""
 "No sound. The Mute Toggle key (\\ by default, in the Controls tab) turns it on and off at any "
 "time."
-msgstr ""
+msgstr "音を出しません。消音の切り替えキー（初期設定は \\、操作タブ）でいつでも切り替えられます。"
 
 msgctxt "UI_MENU_SPEAKERS_DESC"
 msgid ""
@@ -1330,7 +1330,7 @@ msgstr "カメラ下"
 
 msgctxt "UI_BIND_MUTE"
 msgid "Mute Toggle"
-msgstr ""
+msgstr "消音の切り替え"
 
 msgctxt "UI_BIND_DESC_A"
 msgid "Accelerate; confirm in menus."
@@ -1397,7 +1397,7 @@ msgctxt "UI_BIND_DESC_MUTE"
 msgid ""
 "Turns the sound on and off at any time, as the Sound tab's Mute. Keys only: the mouse buttons and "
 "F2 to F5 cannot be used."
-msgstr ""
+msgstr "サウンドタブの消音と同じく、いつでも音のオン/オフを切り替えます。キーのみ：マウスボタンとF2～F5は使えません。"
 
 msgctxt "UI_KEY_SPACE"
 msgid "Space"

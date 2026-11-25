@@ -958,13 +958,15 @@ msgstr "Немає звуку, поки вікно гри не на передн
 
 msgctxt "UI_MENU_MUTE"
 msgid "Mute"
-msgstr ""
+msgstr "Без звуку"
 
 msgctxt "UI_MENU_MUTE_DESC"
 msgid ""
 "No sound. The Mute Toggle key (\\ by default, in the Controls tab) turns it on and off at any "
 "time."
 msgstr ""
+"Без звуку. Клавіша «Увімк./вимк. звук» (типово \\, на вкладці «Керування») перемикає його "
+"будь-коли."
 
 msgctxt "UI_MENU_SPEAKERS_DESC"
 msgid ""
@@ -1425,7 +1427,7 @@ msgstr "Камера вниз"
 
 msgctxt "UI_BIND_MUTE"
 msgid "Mute Toggle"
-msgstr ""
+msgstr "Увімк./вимк. звук"
 
 msgctxt "UI_BIND_DESC_A"
 msgid "Accelerate; confirm in menus."
@@ -1493,6 +1495,8 @@ msgid ""
 "Turns the sound on and off at any time, as the Sound tab's Mute. Keys only: the mouse buttons and "
 "F2 to F5 cannot be used."
 msgstr ""
+"Вмикає і вимикає звук будь-коли, як «Без звуку» на вкладці «Звук». Лише клавіші: кнопки миші та "
+"F2–F5 використати не можна."
 
 msgctxt "UI_KEY_SPACE"
 msgid "Space"
